@@ -1,0 +1,21 @@
+{
+  "name": "angular",
+  "authors": [
+    "Son Vi Hoang <hoang_son@lampart-vn.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "^1.5.7",
+    "angular-ui-router": "^0.3.1"
+  }
+}
