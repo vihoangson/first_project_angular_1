@@ -1,16 +1,12 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" ng-app="booker">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Title Page</title>
-		
-		<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-		
-		<script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+		<title>{{title}}</title>
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link rel="stylesheet" href="bower_components\bootstrap\dist\css\bootstrap.min.css">
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -19,211 +15,23 @@
 			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 		<![endif]-->
 	</head>
-	<!-- Nghiên cứu về angular:  http://www.w3schools.com/angular/angular_services.asp -->
-	<body ng-app="myApp"  ng-init="mmm={mm:'object'};m=['array',2,3,4]" ng-controller="homepage">
-		<p>============ ============ ============  ============  ============  ============ </p>
-			<button type="button" class="btn btn-warning" ng-click="changeDB()">button</button>
-			<h1>ngRoute</h1>
-			<div ui-view></div>
-		<p>============ ============ ============  ============  ============  ============ </p>
-		<h1 class="text-center">Hello World</h1>
-		<p><input ng-model="text_string"></p>
-		<h2>{{text_string}}</h2>
-		<h2>{{text_controller}}</h2>
-		<h2>{{mmm.mm}}</h2>
-		<h2>{{m[0]}}</h2>
-
-		<h1>Test 2</h1>
-		<span ng-bind="text_string + ' ' +1 + 1"></span>
-
-		<div w3-test-directive></div>
-		<div class="w3-test-directive"></div>
-		<h1>Repeat array</h1>
-		<ul>
-			<li ng-repeat="x in list_li_array">
-				{{ x }}
-			</li>
-		</ul>
-		<h1>Repeat object</h1>
-		<ul>
-			<li ng-repeat="x in list_li_object">
-				<p>Name: {{ x.name }} </p>
-				<p>Age: {{ x.age }}</p>
-			</li>
-		</ul>
-		<h1>Custom Directive</h1>
-		<santo-san></santo-san>
-
-		<form name="myForm" ng-init="myText = 'post@myweb.com'">
-			Email:
-			<input type="email" name="myAddress" ng-model="myText" required>
-			<h1>Status</h1>
-			{{myForm.myAddress.$valid}}
-			{{myForm.myAddress.$dirty}}
-			{{myForm.myAddress.$touched}}
-		</form>
-
-		<h1>Function model</h1>
-		<button class="btn btn-primary" ng-click="dofunction()">Function ng-click</button>
-		<span ng-bind="content_function"></span>
-
-		<h1>My_color: <span style="color:{{my_color}}">{{my_color | uppercase }}</span></h1>
-		<p>============ ============ ============  ============  ============  ============ </p>
-
-		<p>Click the table headers to change the sorting order:</p>
-
-
-			<table border="1" width="100%">
-				<tr>
-					<th ng-click="orderByMe('name')">Name</th>
-					<th ng-click="orderByMe('country')">Country</th>
-				</tr>
-				<tr ng-repeat="x in names_list | orderBy:myOrderBy">
-					<td>{{x.name}}</td>
-					<td>{{x.country|myFilter}}</td>
-				</tr>
-			</table>
-
-		<p>============ ============ ============  ============  ============  ============ </p>
-			<h1>myUrl: {{myUrl}}</h1>
-		<p>============ ============ ============  ============  ============  ============ </p>
-			<h1>Get_page: {{get_page}}</h1>
-		<p>============ ============ ============  ============  ============  ============ </p>
-			<h1>Hoangson_service: {{hoangson_service}}</h1>
-		<p>============ ============ ============  ============  ============  ============ </p>
-			<h1>Select</h1>
-			<select ng-model="selectedCar" ng-options="x for (x, y) in cars"></select>
-			<p>selectedCar: {{selectedCar}}</p>
-		<p>============ ============ ============  ============  ============  ============ </p>
-			<h1>directive_custom</h1>
-			<div directive-custom></div>
-		<p>============ ============ ============  ============  ============  ============ </p>
-		<script>
-			var app = angular.module("myApp", ["ui.router"]);
-
-			app.config(function($stateProvider){
-				$stateProvider
-				.state('index', {
-					url: "",
-					templateUrl: "view/main.html",
-					controller: function($scope) {
-						$scope.items = ["A", "List", "Of", "Items"];
-					}
-				})
-				.state('product', {
-					url: "/kim",
-					templateUrl: "view/kim.html",
-					controller: function($scope) {
-						$scope.items = ["A", "List", "Of", "Items"];
-					}
-				})
-			})
-			// app.config(function($routeProvider){
-			// 	$routeProvider.
-			// 	when("/",{
-			// 		data:{data1:"12333"},
-			// 		templateUrl:"view/main.html"
-			// 	})
-			// })
-			app.run(function($rootScope){
-				$rootScope.color = "red";
-			});
-
-			app.controller("homepage",function($scope,$location,$http,hoangson_service){
-				$scope.changeDB = function(){
-					$scope.data1= $.now();
-				}
-				$scope.cars = {
-					branch1:"ford",
-					branch2:"toyota"
-				};
-
-				$scope.data1 = "Nội dung";
-
-
-				$http.post("http://www.w3schools.com/angular/customers.php").then(function(response){
-					console.log(response.data);
-				});
-				$http.get("view/get_page.html").then(function(response){
-					$scope.get_page = response.data;
-				})
-				$scope.myUrl = $location.absUrl();
-				$scope.text_controller = "text_controller";
-				$scope.list_li_array = ["phantu1","phantu2","phantu3","phantu4","phantu5","phantu6","phantu7","phantu8","phantu9","phantu10"];
-				$scope.list_li_object = {"phantu1":{name:"name1",age:"10"},"phantu2":{name:"name2",age:"11"}};
-				$scope.content_function = "content",
-				$scope.dofunction = function(){
-					$scope.content_function = "changed";
-				},
-				$scope.my_color = $scope.color,
-
-				$scope.names_list = [
-					{name:'Jani',country:'Norway'},
-					{name:'Carl',country:'Sweden'},
-					{name:'Margareth',country:'England'},
-					{name:'Hege',country:'Norway'},
-					{name:'Joe',country:'Denmark'},
-					{name:'Gustav',country:'Sweden'},
-					{name:'Birgit',country:'Denmark'},
-					{name:'Mary',country:'England'},
-					{name:'Kai',country:'Norway'}
-				];
-				$scope.orderByMe = function(x) {
-					$scope.myOrderBy = x;
-				}
-
-				$scope.hoangson_service = hoangson_service.myFunction(" Của tôi");
-
-			});
-
-			//url: http://www.w3schools.com/angular/angular_directives.asp
-			app.directive("w3TestDirective", function() {
-				return {
-					restrict:"CA",
-					template : "I was made in a directive constructor!"
-				};
-			});
-
-			app.directive("directiveCustom", Anonimos);
-			function Anonimos(){
-				return {
-					restrict:"A",
-					templateUrl : "view/main.html",
-					controller:function ($scope){
-						$scope.data1 = "directive_custom";
-					}
-				};
-
-			}
-
-			app.directive("santoSan",function(){
-				return {
-					restrict : "E",
-					template : "<h1>Made by a directive!</h1>"
-				};
-			})
-
-			// Custom filter
-			app.filter("myFilter",function(){
-				return function(x){
-					return x + " xxx ";
-				};
-			})
-
-			app.service("hoangson_service",function(){
-				this.myFunction = function (m){
-					return "This's my service"+m;
-				}
-			})
-
-
-		</script>
-
-
+	<body  ng-controller="myController">
+		<div class="ui-view"></div>
+		{{item}}
 		<!-- jQuery -->
-		<script src="http://code.jquery.com/jquery.js"></script>
-		<!-- Bootstrap JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="bower_components\jquery\dist\jquery.min.js"></script>
+		<script src="bower_components\bootstrap\dist\js\bootstrap.min.js"></script>
+		<script src="bower_components\angular\angular.min.js"></script>
+		<script src="bower_components\angular-ui-router\release\angular-ui-router.min.js"></script>
+		<script src="app/script/app.js"></script>
+		<script src="app/script/config.js"></script>
+		<script src="app/script/common/directives/directives.js"></script>
+		<script src="app/script/common/directives/touchSpin.js"></script>
+		<script src="app/script/common/filters/props.js"></script>
+		<script src="app/script/common/factories/abstract.model.js"></script>
+		<script src="app/script/common/factories/abstract.repository.js"></script>
+		<script src="app/script/common/factories/abstract.controller.js"></script>
+		<script src="app/script/common/providers/request.provider.js"></script>
+		<script src="app/script/script.js"></script>
 	</body>
 </html>
