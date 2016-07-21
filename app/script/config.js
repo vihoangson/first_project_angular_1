@@ -1,6 +1,10 @@
-app.config(configBlocks).run().controller("myController",function(){
+app.config(configBlocks).run(runBlocks).controller("myController",function(){
 	//console.log($http.defaults.route);
 });
-function configBlocks($stateProvider) {
+function configBlocks() {
 }
 
+function runBlocks($rootScope,$state) {
+	// setup defaults: $rootScope
+    $rootScope.$state = $state;
+}

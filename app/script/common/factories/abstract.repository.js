@@ -31,6 +31,7 @@ function Anonymous() {
             return $http
                 .get(this.route, { params: params, cache: true })
                 .then(function(response) {
+                    console.log(response);
                     if (response.data.success) {
                         response.data.data = me.exchangeArray(response.data.data, me.model);
                     }

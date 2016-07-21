@@ -14,7 +14,7 @@ function Anonymous(AbstractModel) {
      * @returns {String}
      */
     BooksModel.getRoute = function() {
-        return "Books.json";
+        return "Books.php";
     };
 
     /**
