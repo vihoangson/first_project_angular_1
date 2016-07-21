@@ -3,7 +3,7 @@
  * @author ntd1712
  */
 app.controller("BooksController", Anonymous);
-function Anonymous($scope,  AbstractController) {
+function Anonymous($scope, BooksRepository, AbstractController) {
     function BooksController() {
      //   BooksController.parent.constructor.apply(this, arguments.callee.caller.arguments);
     }
