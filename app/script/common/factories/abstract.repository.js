@@ -17,6 +17,7 @@ function Anonymous() {
         $http = $httpProvider;
         this.model = model;
         this.route = ($http.defaults.route || "/api/") + model.getRoute();
+        console.log("asdfawdf");
     }
 
     // Public, non-privileged methods

@@ -98,6 +98,19 @@
 			<h1>directive_custom</h1>
 			<div directive-custom></div>
 		<p>============ ============ ============  ============  ============  ============ </p>
+		<form ng-submit="submitform(textinput)">
+			<legend>Form title</legend>
+		
+			<div class="form-group">
+				<label for="">label</label>
+				<input type="text" ng-model="textinput.son" class="form-control" id="" placeholder="Input field">
+			</div>
+		
+			
+		
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>		
+		<p>============ ============ ============  ============  ============  ============ </p>
 		<script>
 			var app = angular.module("myApp", ["ui.router"]);
 
@@ -130,6 +143,10 @@
 			});
 
 			app.controller("homepage",function($scope,$location,$http,hoangson_service){
+				$scope.submitform = function(textinput){
+					alert(textinput.son);
+				}
+
 				$scope.changeDB = function(){
 					$scope.data1= $.now();
 				}
