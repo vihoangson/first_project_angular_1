@@ -1,9 +1,2 @@
-var app = angular.module("booker",[]);
+var app = angular.module("booker",["ui.router"]);
 
-app.run(function ($rootScope){
-  $rootScope.title="Trang sách";
-})
-
-app.controller("myController",function($scope){
-  $scope.item = "Item contract";
-})

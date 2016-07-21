@@ -4,10 +4,9 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>{{title}}</title>
+		<title page-title></title>
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="bower_components\bootstrap\dist\css\bootstrap.min.css">
-
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -16,22 +15,21 @@
 		<![endif]-->
 	</head>
 	<body  ng-controller="myController">
-		<div class="ui-view"></div>
-		{{item}}
+		<div ui-view></div>
 		<!-- jQuery -->
-		<script src="bower_components\jquery\dist\jquery.min.js"></script>
-		<script src="bower_components\bootstrap\dist\js\bootstrap.min.js"></script>
-		<script src="bower_components\angular\angular.min.js"></script>
-		<script src="bower_components\angular-ui-router\release\angular-ui-router.min.js"></script>
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 		<script src="app/script/app.js"></script>
 		<script src="app/script/config.js"></script>
-		<script src="app/script/common/directives/directives.js"></script>
+		<!-- <script src="app/script/common/directives/directives.js"></script>
 		<script src="app/script/common/directives/touchSpin.js"></script>
 		<script src="app/script/common/filters/props.js"></script>
 		<script src="app/script/common/factories/abstract.model.js"></script>
 		<script src="app/script/common/factories/abstract.repository.js"></script>
 		<script src="app/script/common/factories/abstract.controller.js"></script>
-		<script src="app/script/common/providers/request.provider.js"></script>
+		<script src="app/script/common/providers/request.provider.js"></script> -->
 		<script src="app/script/script.js"></script>
 	</body>
 </html>
