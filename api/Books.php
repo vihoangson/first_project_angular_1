@@ -1,7 +1,15 @@
+<?php header('Content-Type: application/json'); ?>
 {
-	"data":[
-		{"id":1},
-		{"id":2}
+	"data":
+	[
+		{
+			"Id":"1",
+			"Name": "Son1"
+		},
+		{
+			"Id":"2",
+			"Name": "Son2"
+		}
 	],
 	"success":true
 }

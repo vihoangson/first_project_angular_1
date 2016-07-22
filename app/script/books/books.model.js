@@ -2,38 +2,33 @@
 /**
  * @author ntd1712
  */
-app.service("BooksModel", Anonymous);
+app.value("BooksModel", BooksModel);
 
-function Anonymous(AbstractModel) {
-    function BooksModel(data) {
-        BooksModel.parent.constructor.apply(this, [data, BooksModel.getFields()]);
+function BooksModel(data) {
+    data = data || {};
+    var fields = arguments.callee.getFields(),
+        length = fields.length, key;
+    for (key = 0; key < length; key++) {
+        this[fields[key].data] = data[fields[key].data] || fields[key].value;
     }
-    extend(BooksModel, AbstractModel);
-
-    /**
-     * @returns {String}
-     */
-    BooksModel.getRoute = function() {
-        return "Books.php";
-    };
-
-    /**
-     * @return {Object[]}
-     */
-    BooksModel.getFields = function() {
-        /*return [{
-            data: "Id",
-            value: 0,
-            visible: false
-        },{
-            data: "Name",
-            title: "Name",
-            value: "",
-            sortable: false
-        }];*/
-    };
-
-    return BooksModel;
 }
+
+BooksModel.getRoute = function() {
+    return "Books.php";
+};
+
+BooksModel.getFields = function() {
+    return [{
+        data: "Id",
+        value: 0,
+        visible: false
+    },{
+        data: "Name",
+        value: "",
+        title: "Name",
+        class: "col-xs-4"
+    }
+    ];
+};
 
 })();

@@ -17,11 +17,7 @@ function configBlocks($stateProvider) {
         })
         .state("book.index", {
             url: "",
-            templateUrl: "views/common/simple-grid.html",
-            data: {
-                pageTitle: "Manage books",
-                pageDesc: "From here you can browse all of the latest books"
-            }
+            templateUrl: "views/books/index.html"
         })
         .state("book.create", {
             url: "/create",
