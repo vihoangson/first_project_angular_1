@@ -25,7 +25,7 @@ BooksModel.getFields = function() {
     },{
         data: "Name",
         value: "",
-        title: "Name",
+        title: "Name", 
         class: "col-xs-4"
     }
     ];
