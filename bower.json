@@ -17,6 +17,9 @@
   "dependencies": {
     "angular-route": "^1.5.7",
     "angular-ui-router": "^0.3.1",
+    "DataTables": "~1.10.12",
+    "datatables_plugins": "https://github.com/DataTables/Plugins.git#~1.10.12",
+    "angular-datatables": "~0.5.4",
     "bootstrap": "^3.3.6",
     "masonry": "^4.1.0"
   }
