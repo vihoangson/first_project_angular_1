@@ -18,6 +18,9 @@ function Anonymous($scope, BooksRepository, AbstractController) {
             });
             $scope.namebook = model.name;
             console.log(model.name);
+        },
+        bootstrap2: function (){
+            $scope.test123 = "Nội dung cần test";
         }
     }
 

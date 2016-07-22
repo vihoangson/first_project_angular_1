@@ -2,3 +2,15 @@
 <button type="button" ng-click="ctrl.change_db()">change_db</button>
 <h2>{{book.id}}</h2>
 <h2>{{book.name}}</h2>
+
+<div ng-init="ctrl.bootstrap('grid')">
+	<h3>content</h3>
+    <div class="table-responsive panel-body">
+        <table datatable="" dt-columns="dtColumns" dt-options="dtOptions" dt-disable-deep-watchers="true"
+        class="table table-condensed table-striped table-bordered table-hover"></table>
+    </div>
+</div>
+<div ng-init="ctrl.bootstrap2()">
+	<h3>content</h3>
+	<p>{{test123}}</p>
+</div>
