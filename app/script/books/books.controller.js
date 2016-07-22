@@ -11,19 +11,17 @@ function Anonymous($scope, BooksRepository, AbstractController) {
     BooksController.prototype = Object.create(AbstractController.prototype);
     BooksController.prototype.constructor = BooksController;
 
-    BooksController.prototype = {
-        change_db : function(model){
+    BooksController.prototype.change_db = function(moedl){
             this.repository.index().then(function(){
-                console.log(map.data);
+                //console.log(map.data);
             });
             $scope.namebook = model.name;
-            console.log(model.name);
-        },
-        bootstrap2: function (){
-            $scope.test123 = "Nội dung cần test";
-        }
-    }
-
+            //console.log(model.name);
+    };
+   
+    BooksController.prototype.bootstrap2 = function(moedl){
+        $scope.test123 = "test123";
+    };
 
     return new BooksController();
 }
