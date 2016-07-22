@@ -1,4 +1,4 @@
-var app = angular.module("booker",["ui.router"]);
+var app = angular.module("booker",["ui.router","datatables"]);
 
 
 if ("function" !== typeof inherit) {

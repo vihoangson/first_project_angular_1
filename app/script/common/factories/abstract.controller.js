@@ -162,6 +162,7 @@ function Anonymous($compile) {
          * @returns {Object} AbstractController
          */
         bootstrap: function(mode) {
+            console.log("in");
             if (!mode) {
                 mode = undefined !== $scope.$state.current.data.isNew ? "form" : "grid";
             }
@@ -171,6 +172,7 @@ function Anonymous($compile) {
                     false === $scope.$state.current.data.isNew ? this.edit($scope.$state.params.id) : this.create();
                     break;
                 default:
+
                     $scope.dtColumns = this.getDTColumns($scope.dtColumns);
                     $scope.dtOptions = this.getDTOptions($scope.dtOptions);
             }
@@ -293,7 +295,7 @@ function Anonymous($compile) {
                     }
                 });
             }
-
+            console.log(columns);
             return columns;
         },
         /**
