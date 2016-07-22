@@ -13,9 +13,11 @@ function Anonymous($scope, BooksRepository, AbstractController) {
 
     BooksController.prototype.change_db = function(moedl){
             this.repository.index().then(function(){
+                // TODO: debug
                 //console.log(map.data);
             });
             $scope.namebook = model.name;
+            // TODO: debug
             //console.log(model.name);
     };
    
