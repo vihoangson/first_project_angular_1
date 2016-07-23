@@ -37,11 +37,9 @@ class Book extends REST_Controller {
         return $jsonEncoder->encode($userData, $format = 'json');
     }
     public function index_get(){
-
         log_message('debug',time()."_index_get.log",json_encode('get'));
-
         $data_doctrine = $this->em->getRepository("Entity\User")->findAll();
-
+        $data=[];
         foreach ($data_doctrine as $key => $value) {
             $data[$key]["Id"] = $value->getId();
             $data[$key]["Name"] = $value->getUsername();
@@ -62,10 +60,8 @@ class Book extends REST_Controller {
     }
 
     public function index_put(){
-        // $this->set_response(["ee123"=>($this->put("id")),"lff"=>"alsdkfja;d"]);
-        // return ;
         log_message('debug',time()."_index_put: ".json_encode($this->put()));
-        if($this->put()){
+        if($this->put('Id') && $this->put('Id')){
             $user = $this->em->getRepository("Entity\User")->find($this->put('Id'));
             $user->setUsername($this->put('Name'));
             $this->em->persist($user);
@@ -74,7 +70,10 @@ class Book extends REST_Controller {
     }
 
     public function index_delete($id){
-        log_message('debug',time()."_index_delete.log",json_encode('delete'.$this->delete('id')));
+        log_message('debug',json_encode("id: ".$id.'delete'));
+        $user = $this->em->getRepository("Entity\User")->find($id);
+        $this->em->remove($user);
+        $this->em->flush();
     }
 
 }

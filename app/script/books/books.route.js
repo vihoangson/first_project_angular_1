@@ -18,7 +18,7 @@ function configBlocks($stateProvider) {
         })
         .state("book.index", {
             url: "",
-            templateUrl: "views/books/index.html"
+            templateUrl: "views/common/simple-grid.html"
         })
         .state("book.create", {
             url: "/create",
