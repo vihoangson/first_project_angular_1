@@ -64,9 +64,9 @@ class Book extends REST_Controller {
     public function index_put(){
         // $this->set_response(["ee123"=>($this->put("id")),"lff"=>"alsdkfja;d"]);
         // return ;
-        log_message('debug',time()."_index_put".json_encode('put'.$this->put('id').".log"));
-        if($this->put('Name')){
-            $user = $this->em->getRepository("Entity\User")->find($this->put('id'));
+        log_message('debug',time()."_index_put: ".json_encode($this->put()));
+        if($this->put()){
+            $user = $this->em->getRepository("Entity\User")->find($this->put('Id'));
             $user->setUsername($this->put('Name'));
             $this->em->persist($user);
             $this->em->flush();
