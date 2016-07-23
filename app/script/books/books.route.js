@@ -43,7 +43,7 @@ function configBlocks($stateProvider) {
                     templateUrl: "views/common/simple-form.html"
                 },
                 "@book.edit": {
-                    templateUrl: "views/common/simple-form.html"
+                    templateUrl: route + "form.html"
                 }
             },
             data: {
