@@ -3,11 +3,11 @@
 namespace Entity;
 
 /**
- * User Model
+ * Book Model
  *
- * @Entity
+ *
+ * @Entity(repositoryClass="Repositories\BookRepository")
  * @Table(name="book")
- * @author  Joseph Wynn <joseph@wildlyinaccurate.com>
  */
 class Book
 {
@@ -16,6 +16,7 @@ class Book
 	 * @Id
 	 * @Column(type="integer", nullable=false)
 	 * @GeneratedValue(strategy="AUTO")
+	 * 
 	 */
 	protected $id;
 

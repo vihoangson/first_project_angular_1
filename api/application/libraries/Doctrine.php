@@ -44,6 +44,9 @@ class Doctrine
 		$proxies_dir = APPPATH . 'models/Proxies';
 		$metadata_paths = array(APPPATH . 'models/Entity');
 
+        // register all repositories class to the ClassLoader
+        (new ClassLoader('Repositories', APPPATH.'models'))->register();
+
 		// Set $dev_mode to TRUE to disable caching while you develop
 		$dev_mode = false;
 
