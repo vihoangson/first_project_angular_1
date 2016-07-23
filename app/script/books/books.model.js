@@ -19,16 +19,16 @@ BooksModel.getRoute = function() {
 
 BooksModel.getFields = function() {
     return [{
-        data: "Id",
+        data: "id",
         value: 0,
         visible: false
     },{
-        data: "Name",
+        data: "name",
         value: "",
         title: "Name", 
         class: "col-xs-4"
     },{
-        data: "Description",
+        data: "description",
         value: "",
         title: "Description", 
         class: "col-xs-4"
