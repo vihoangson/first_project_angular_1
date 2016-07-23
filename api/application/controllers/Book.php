@@ -44,10 +44,11 @@ class Book extends REST_Controller {
 
         foreach ($data_doctrine as $key => $value) {
             $data[$key]["Id"] = $value->getId();
+            $data[$key]["Name"] = $value->getUsername();
             $data[$key]["Description"] = $value->getUsername();
         }
-        $status=true;
-        $this->set_response([compact("data","status")]);
+        $success=true;
+        $this->set_response(compact("data","success"));
     }
 
     public function index_post(){
@@ -61,7 +62,15 @@ class Book extends REST_Controller {
     }
 
     public function index_put(){
-        log_message('debug',time()."_index_put.log",json_encode('put'.$this->delete('id')));
+        // $this->set_response(["ee123"=>($this->put("id")),"lff"=>"alsdkfja;d"]);
+        // return ;
+        log_message('debug',time()."_index_put".json_encode('put'.$this->put('id').".log"));
+        if($this->put('Name')){
+            $user = $this->em->getRepository("Entity\User")->find($this->put('id'));
+            $user->setUsername($this->put('Name'));
+            $this->em->persist($user);
+            $this->em->flush();
+        }
     }
 
     public function index_delete($id){
