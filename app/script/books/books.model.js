@@ -14,7 +14,7 @@ function BooksModel(data) {
 }
 
 BooksModel.getRoute = function() {
-    return "Books.php";
+    return "index.php/book";
 };
 
 BooksModel.getFields = function() {
