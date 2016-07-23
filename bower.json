@@ -21,6 +21,7 @@
     "datatables_plugins": "https://github.com/DataTables/Plugins.git#~1.10.12",
     "angular-datatables": "~0.5.4",
     "bootstrap": "^3.3.6",
-    "masonry": "^4.1.0"
+    "masonry": "^4.1.0",
+    "underscore": "^1.8.3"
   }
 }
