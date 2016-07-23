@@ -46,6 +46,7 @@ function Anonymous() {
          */
         store: function(model) {
             this.refine();
+            console.log(model);
             return $http.post(this.route, model);
         },
         /**

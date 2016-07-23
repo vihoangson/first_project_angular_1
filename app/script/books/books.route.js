@@ -5,6 +5,7 @@
 app.config(configBlocks);
 
 function configBlocks($stateProvider) {
+    var route = "views/books/";
     $stateProvider
         .state("book", {
             url: "/book",
@@ -23,15 +24,15 @@ function configBlocks($stateProvider) {
             url: "/create",
             views: {
                 "": {
-                    templateUrl: "views/books/form.html"
+                    templateUrl: "views/common/simple-form.html"
                 },
                 "@book.create": {
-                    templateUrl: "views/books/form.html"
+                    templateUrl: route + "form.html"
                 }
             },
             data: {
-                pageTitle: "New book",
-                pageDesc: "From here you can create a new book",
+                pageTitle: "New Permission",
+                pageDesc: "From here you can create a new permission",
                 isNew: true
             }
         })
