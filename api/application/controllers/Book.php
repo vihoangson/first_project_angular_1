@@ -23,7 +23,7 @@ class Book extends REST_Controller {
     }
 
     public function index_get(){
-        file_put_contents(time()."_index_get.log",json_encode('get'));
+        log_message('debug',time()."_index_get.log",json_encode('get'));
         $this->set_response(
             ["data"=>[
                 ["Id"=>1,"Name"=>"son1","Description"=>"Description1"],
@@ -34,11 +34,11 @@ class Book extends REST_Controller {
     }
 
     public function index_post(){
-        file_put_contents(time()."_index_post.log",json_encode([$this->post("Name"),$this->post("Description")]));
+        log_message('debug',time()."_index_post.log",json_encode([$this->post("Name"),$this->post("Description")]));
     }
 
     public function index_delete(){
-        file_put_contents(time()."_index_delete.log",json_encode('delete'));
+        log_message('debug',time()."_index_delete.log",json_encode('delete'));
     }
 
 }

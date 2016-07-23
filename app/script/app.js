@@ -5,15 +5,7 @@ var app = angular.module("booker",["ui.router","datatables"]);
 /**
  * @author ntd1712
  */
-window.chaos = angular.module("homer", [
-    "ngSanitize",
-    "ui.router",
-    "ui.select",
-    "datatables",
-    "angular-jwt",
-    "checklist-model",
-    "ngFileUpload"
-]);
+
 
 if (window.swal) {
     /**
