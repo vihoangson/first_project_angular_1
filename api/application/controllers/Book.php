@@ -24,55 +24,39 @@ class Book extends REST_Controller {
         parent::__construct();
         $this->em = $this->doctrine->em;
     }
-    private function encodeUserDataToJson(User $user)
-    {
-        $userData = array(
-            'id' => $user->getId(),
-            'profile' => array(
-                'nickname' => $user->getProfile()->getNickname()
-            )
-        );
-
-        $jsonEncoder = new JsonEncoder();        
-        return $jsonEncoder->encode($userData, $format = 'json');
-    }
+  
     public function index_get(){
-        log_message('debug',time()."_index_get.log",json_encode('get'));
-        $data_doctrine = $this->em->getRepository("Entity\User")->findAll();
-        $data=[];
+        $data_doctrine = $this->em->getRepository("Entity\Book")->findAll();
         foreach ($data_doctrine as $key => $value) {
             $data[$key]["Id"] = $value->getId();
-            $data[$key]["Name"] = $value->getUsername();
-            $data[$key]["Description"] = $value->getUsername();
+            $data[$key]["Name"] = $value->getName();
+            $data[$key]["Description"] = $value->getDescription();
         }
         $success=true;
         $this->set_response(compact("data","success"));
     }
 
     public function index_post(){
-        log_message('debug',time()."_index_post.log",json_encode([$this->post("Name"),$this->post("Description")]));
-        $user = new Entity\User;
-        $user->setUsername($this->post("Name")."__".time());
-        $user->setPassword($this->post("Description")."__".time());
-        $user->setEmail($this->post("Name").time());
-        $this->em->persist($user);
+        $book = new Entity\Book;
+        $book->setName($this->post("Name"));
+        $book->setDescription($this->post("Description"));
+        $this->em->persist($book);
         $this->em->flush();
     }
 
     public function index_put(){
-        log_message('debug',time()."_index_put: ".json_encode($this->put()));
         if($this->put('Id') && $this->put('Id')){
-            $user = $this->em->getRepository("Entity\User")->find($this->put('Id'));
-            $user->setUsername($this->put('Name'));
-            $this->em->persist($user);
+            $book = $this->em->getRepository("Entity\Book")->find($this->put('Id'));
+            $book->setName($this->put('Name'));
+            $book->setDescription($this->put('Description'));
+            $this->em->persist($book);
             $this->em->flush();
         }
     }
 
     public function index_delete($id){
-        log_message('debug',json_encode("id: ".$id.'delete'));
-        $user = $this->em->getRepository("Entity\User")->find($id);
-        $this->em->remove($user);
+        $book = $this->em->getRepository("Entity\Book")->find($id);
+        $this->em->remove($book);
         $this->em->flush();
     }
 
