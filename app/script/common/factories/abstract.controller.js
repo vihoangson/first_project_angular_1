@@ -141,6 +141,7 @@ function Anonymous($compile) {
             }
 
             var me = this;
+            console.log(id);
             confirm("Are you sure?", undefined, function() {
                 me.repository.destroy(id).then(
                     function(response) {
