@@ -22,13 +22,12 @@ function Anonymous($scope, BooksRepository, AbstractController) {
     };
    
     BooksController.prototype.show = function(model){
-        console.log(this.repository.show_book());
         this.repository.show_book().then(
             function(response){
-                console.log(response.data);
+                $scope.collection = Object(response)["data"];
             }
         );
-        $scope.test123 = "test123";
+        return this;
     };
 
     return new BooksController();
