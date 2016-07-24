@@ -24,6 +24,13 @@ function configBlocks($stateProvider) {
             url: "/show",
             templateUrl: "views/books/show.html"
         })
+        .state("book.detail", {
+            url: "/detail/{id:int}",
+            templateUrl: route+"detail_page.html",
+            controller:function($scope,$stateParams){
+                $scope.id=$stateParams.id;
+            }
+        })
         .state("book.create", {
             url: "/create",
             views: {

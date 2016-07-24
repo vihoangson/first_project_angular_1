@@ -4,7 +4,11 @@
 	</div>
 	<div class="panel-body">
 		<div ng-repeat="model in collection">
-			{{model.Name}}
+			<div>
+				
+				<h1><a ui-sref="book.detail({id: {{model.Id}}})">{{model.Name}}</a></h1>
+				<p>{{model.Description}}</p>
+			</div>
 		</div>
 	</div>
 </div>

@@ -11,20 +11,20 @@ function Anonymous($scope, BooksRepository, AbstractController) {
     BooksController.prototype = Object.create(AbstractController.prototype);
     BooksController.prototype.constructor = BooksController;
 
-    BooksController.prototype.change_db = function(model){
-            this.repository.index().then(function(){
-                // TODO: debug
-                //console.log(map.data);
-            });
-            $scope.namebook = model.name;
-            // TODO: debug
-            //console.log(model.name);
-    };
-   
     BooksController.prototype.show = function(model){
         this.repository.show_book().then(
             function(response){
                 $scope.collection = Object(response)["data"];
+            }
+        );
+        return this;
+    };
+
+    BooksController.prototype.detail = function(id){
+        this.repository.index({id:id}).then(
+            function(response){
+                $scope.collection = Object(response)["data"];
+                console.log($scope.collection);
             }
         );
         return this;

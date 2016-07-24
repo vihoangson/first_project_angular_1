@@ -34,7 +34,6 @@ function Anonymous($compile) {
          * @returns {Object} AbstractController
          */
         index: function(params) {
-            console.log("alskdjf");
             this.repository.index(params).then(
                 function(response) {
                     $scope.collection = Object(response)[map.data];

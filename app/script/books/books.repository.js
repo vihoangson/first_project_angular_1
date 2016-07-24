@@ -13,7 +13,7 @@ function Anonymous($http, BooksModel, AbstractRepository) {
 	BooksRepository.prototype.show_book = function(){
 		var me = this;
 		return $http
-		.get(this.route, {  cache: true })
+		.get(this.route, { cache: true })
 		.then(function(response) {
 			if (response.data.success) {
 				response.data.data = me.exchangeArray(response.data.data, me.model);
@@ -21,7 +21,6 @@ function Anonymous($http, BooksModel, AbstractRepository) {
 			return response.data;
 		});
 	}
-
 
     return new BooksRepository();
 }

@@ -26,11 +26,17 @@ class Book extends REST_Controller {
     }
   
     public function index_get(){
-        $data_doctrine = $this->em->getRepository("Entity\Book")->findAll();
-        foreach ($data_doctrine as $key => $value) {
-            $data[$key]["Id"] = $value->getId();
-            $data[$key]["Name"] = $value->getName();
-            $data[$key]["Description"] = $value->getDescription();
+        if($this->get("id")){
+            $data["Id"] = "Id_1";
+            $data["Name"] = "Name_2";
+            $data["Description"] = "Description_3";
+        }else{
+            $data_doctrine = $this->em->getRepository("Entity\Book")->findAll();
+            foreach ($data_doctrine as $key => $value) {
+                $data[$key]["Id"] = $value->getId();
+                $data[$key]["Name"] = $value->getName();
+                $data[$key]["Description"] = $value->getDescription();
+            }
         }
         $success=true;
         $this->set_response(compact("data","success"));
