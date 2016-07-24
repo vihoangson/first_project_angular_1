@@ -15,25 +15,4 @@ class BookRepository extends EntityRepository {
             ->getQuery()
             ->getArrayResult();
     }
-
-    // public function getAllProductArrays()
-    // {
-    //     return $this->getEntitymanager()->createQueryBuilder()
-    //         ->select('p')
-    //         ->from('Entities\Product', 'p')
-    //         ->orderBy('p.name', 'DESC')
-    //         ->getQuery()
-    //         ->getArrayResult();
-    // }
-
-    // public function getProductArrayById($id)
-    // {
-    //     return $this->getEntitymanager()->createQueryBuilder()
-    //         ->select('p')
-    //         ->from('Entities\Product', 'p')
-    //         ->where('p.id = :id')
-    //         ->setParameter('id', $id)
-    //         ->getQuery()
-    //         ->getOneOrNullResult(Query::HYDRATE_ARRAY);
-    // }
 }

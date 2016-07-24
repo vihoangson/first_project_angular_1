@@ -31,12 +31,8 @@ function Anonymous() {
                 .get(this.route, { params: params, cache: true })
                 .then(function(response) {
                     if (response.data.success) {
-                        //console.log("test");
-                        //console.log(response.data.data);
                         response.data.data = me.exchangeArray(response.data.data, me.model);
                     }
-                    //console.log("response.data");
-                    //console.log(response.data);
                     return response.data;
                 });
         },
