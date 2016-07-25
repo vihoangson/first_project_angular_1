@@ -1,3 +1,6 @@
+if(!location.href.match(/#/)){
+    location.href="/#/";
+}
 var app = angular.module("booker",[
     "ui.router",
     "datatables",

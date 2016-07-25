@@ -7,6 +7,19 @@ app.config(configBlocks);
 function configBlocks($stateProvider) {
     var route = "views/books/";
     $stateProvider
+        .state("homepage", {
+            url: "/",
+            templateUrl: "views/common/content-small.html",
+            data: {
+                pageTitle: "book"
+            },
+            controller: "BooksController as ctrl",
+            abstract: true
+        }).state("homepage.index", {
+            url: "",
+            templateUrl: "views/common/simple-grid.html"
+        });
+    $stateProvider
         .state("book", {
             url: "/book",
             templateUrl: "views/common/content-small.html",
