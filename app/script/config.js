@@ -4,7 +4,8 @@ app.config(configBlocks).run(runBlocks).controller("myController",function(){
 function configBlocks() {
 }
 
-function runBlocks($rootScope,$state) {
+function runBlocks($rootScope,$cacheFactory,$http,$state) {
 	// setup defaults: $rootScope
     $rootScope.$state = $state;
+	$http.defaults.$cacheFactory = $cacheFactory;
 }
