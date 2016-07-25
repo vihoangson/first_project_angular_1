@@ -32,6 +32,11 @@ BooksModel.getFields = function() {
         value: "",
         title: "Description", 
         class: "col-xs-4"
+    },{
+        data: "Star",
+        value: "",
+        title: "Star", 
+        class: "col-xs-4"
     }
     ];
 };

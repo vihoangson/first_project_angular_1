@@ -4,7 +4,7 @@
  */
 app.controller("BooksController", Anonymous);
 
-function Anonymous($scope, BooksRepository, AbstractController) {
+function Anonymous($scope, BooksRepository, AbstractController,Upload) {
     function BooksController() {
         AbstractController.apply(this, arguments.callee.caller.arguments);
     }
@@ -19,6 +19,8 @@ function Anonymous($scope, BooksRepository, AbstractController) {
         );
         return this;
     };
+
+    // TODO: upload file
 
     BooksController.prototype.detail = function(id){
         this.repository.index({id:id}).then(

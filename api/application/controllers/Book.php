@@ -31,12 +31,14 @@ class Book extends REST_Controller {
             $data["Id"]          = $data_doctrine->getId();
             $data["Name"]        = $data_doctrine->getName();
             $data["Description"] = $data_doctrine->getDescription();
+            $data["Star"]        = $data_doctrine->getStar();
         }else{
             $data_doctrine = $this->em->getRepository("Entity\Book")->findAll();
             foreach ($data_doctrine as $key => $value) {
                 $data[$key]["Id"]          = $value->getId();
                 $data[$key]["Name"]        = $value->getName();
                 $data[$key]["Description"] = $value->getDescription();
+                $data[$key]["Star"]        = $value->getStar();
             }
         }
         $success=true;
@@ -47,6 +49,7 @@ class Book extends REST_Controller {
         $book = new Entity\Book;
         $book->setName($this->post("Name"));
         $book->setDescription($this->post("Description"));
+        $book->setStar($this->post("Star"));
         $this->em->persist($book);
         $this->em->flush();
     }
@@ -56,6 +59,7 @@ class Book extends REST_Controller {
             $book = $this->em->getRepository("Entity\Book")->find($this->put('Id'));
             $book->setName($this->put('Name'));
             $book->setDescription($this->put('Description'));
+            $book->setStar($this->put("Star"));
             $this->em->persist($book);
             $this->em->flush();
         }

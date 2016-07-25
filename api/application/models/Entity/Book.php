@@ -30,13 +30,19 @@ class Book
 	 */
 	protected $description;
 
+
+	/**
+	 * @Column(type="integer", length=5, nullable=false, options={"default":0})
+	 */
+	protected $star;
+
+
 	public function getId(){
 		return $this->id;
 	}
 
 	public function setId($id){
 		$this->id = $id;
-
 	}
 
 	public function getName(){
@@ -55,6 +61,14 @@ class Book
 
 	public function setDescription($description){
 		$this->description = $description;
+	}
+
+	public function getStar(){
+		return $this->star;
+	}
+
+	public function setStar($star){
+		$this->star = $star;
 	}
 
 }

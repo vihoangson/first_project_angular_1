@@ -1,4 +1,12 @@
-var app = angular.module("booker",["ui.router","datatables"]);
+var app = angular.module("booker",[
+    "ui.router",
+    "datatables",
+    "ngFileUpload",
+    ]);
+    // "ngSanitize",
+    // "ui.select",
+    // "angular-jwt",
+    // "checklist-model",
 (function() { "use strict";
     
 //============ ============ ============  ============  ============  ============ 
