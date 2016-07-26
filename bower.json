@@ -81,7 +81,8 @@
     "angular-underscore": "~0.5.0",
     "angular-xeditable": "~0.1.12",
     "checklist-model": "~0.9.0",
-    "ng-file-upload": "~12.0.4"
+    "ng-file-upload": "~12.0.4",
+    "less": "^2.7.1"
   },
   "resolutions": {
     "jquery": "~2.2.4",

@@ -6,9 +6,9 @@ var app = angular.module("booker",[
     "datatables",
     "ngFileUpload",
     "ngSanitize",
+    "angular-jwt",
     ]);
     // "ui.select",
-    // "angular-jwt",
     // "checklist-model",
 (function() { "use strict";
     
