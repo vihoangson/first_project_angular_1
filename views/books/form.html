@@ -18,9 +18,8 @@
 <div class="form-group"><label class="control-label col-sm-2">Image</label>
     <div class="col-sm-6">
         <input type="file" ngf-select="onFileSelect($files)" multiple>
-        <input type="text" class="form-control input-sm" required ng-model="model.Images"/>
+        <input type="text" class="form-control input-sm hidden" required ng-model="model.Images"/>
          <div id="preview-img" ng-bind-html="images"></div>
-         {{data_images}}
     </div>
 </div>
 

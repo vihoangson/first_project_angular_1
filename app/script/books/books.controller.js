@@ -26,6 +26,7 @@ function Anonymous($scope, BooksRepository, AbstractController,Upload) {
             if(data.data.status=="success"){
                 alert("Thank you: "+data.data.info_file.file_name);
                 data_images.push(data.data.info_file.file_name);
+                $scope.model.Images = JSON.stringify(data_images);
                 render_img(data_images);
             }else{
                 alert("Error");
