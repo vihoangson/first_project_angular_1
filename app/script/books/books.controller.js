@@ -5,11 +5,39 @@
 app.controller("BooksController", Anonymous);
 
 function Anonymous($scope, BooksRepository, AbstractController,Upload) {
+
     function BooksController() {
         AbstractController.apply(this, arguments.callee.caller.arguments);
     }
     BooksController.prototype = Object.create(AbstractController.prototype);
     BooksController.prototype.constructor = BooksController;
+    var data_images = [];
+
+      $scope.onFileSelect = function($files) {
+        //$files: an array of files selected, each file has name, size, and type.
+        for (var i = 0; i < $files.length; i++) {
+          var $file = $files[i];
+          Upload.upload({
+            url: 'api/index.php/book/upload',
+            file: $file,
+            progress: function(e){}
+          }).then(function(data, status, headers, config) {
+            // file is uploaded successfully
+            if(data.data.status=="success"){
+                alert("Thank you: "+data.data.info_file.file_name);
+                data_images.push(data.data.info_file.file_name);
+                render_img(data_images);
+            }else{
+                alert("Error");
+            }
+          }); 
+        }
+      }
+        var render_img = function(data_images){            
+            $.each(data_images, function(index, val) {
+                $scope.images = ($scope.images||"") + "<img src='images/"+val+"'>";
+            });
+        }
 
     BooksController.prototype.show = function(model){
         this.repository.show_book().then(

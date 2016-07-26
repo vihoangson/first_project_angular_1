@@ -37,6 +37,11 @@ BooksModel.getFields = function() {
         value: "",
         title: "Star", 
         class: "col-xs-4"
+    },{
+        data: "Images",
+        value: "",
+        title: "", 
+        class: "hidden"
     }
     ];
 };

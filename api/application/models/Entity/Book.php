@@ -36,6 +36,10 @@ class Book
 	 */
 	protected $star;
 
+	/**
+	 * @Column(type="string", length=5000, nullable=false, options={"default":""})
+	 */
+	protected $images;
 
 	public function getId(){
 		return $this->id;
@@ -69,6 +73,14 @@ class Book
 
 	public function setStar($star){
 		$this->star = $star;
+	}
+
+	public function getImages(){
+		return $this->images;
+	}
+
+	public function setImages($images){
+		$this->images = $images;
 	}
 
 }
