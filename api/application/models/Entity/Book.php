@@ -26,7 +26,7 @@ class Book
 	protected $name;
 
 	/**
-	 * @Column(type="string", length=564, nullable=false)
+	 * @Column(type="string", length=2000, nullable=false)
 	 */
 	protected $description;
 

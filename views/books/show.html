@@ -1,9 +1,11 @@
 <div ng-init="ctrl.show()" class="">
-	<div ng-repeat="model in collection">
-		<div>
-			<h1><a ui-sref="book.detail({id: {{model.Id}}})">{{model.Name}}</a></h1>
-			<div ng-bind-html="model.Images|generateImages"></div>
-			<p>{{model.Description}}</p>
+	<div class="row">
+		<div ng-repeat="model in collection" class="col-md-4 ele-book">
+			<div class="">
+				<a ui-sref="book.detail({id: {{model.Id}}})"><div ng-bind-html="model.Images|generateImages" class="thumnail"></div></a>
+				<h2><a ui-sref="book.detail({id: {{model.Id}}})">{{model.Name}}</a></h2>
+				<p class="">{{model.Description}}</p>
+			</div>
 		</div>
 	</div>
 </div>

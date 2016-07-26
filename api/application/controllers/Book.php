@@ -38,7 +38,7 @@ class Book extends REST_Controller {
             $data[$key]["Star"]        = $value->getStar();
             $data[$key]["Images"]      = $value->getImages();
         }
-        if(count($data)==1){
+        if($this->get("id")){
             $data = $data[0];
         }
         $success=true;

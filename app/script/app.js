@@ -7,6 +7,7 @@ var app = angular.module("booker",[
     "ngFileUpload",
     "ngSanitize",
     "angular-jwt",
+    "ncy-angular-breadcrumb",
     ]);
     // "ui.select",
     // "checklist-model",

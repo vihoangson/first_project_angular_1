@@ -24,7 +24,7 @@ function configBlocks($stateProvider) {
             url: "/book",
             templateUrl: "views/common/content-small.html",
             data: {
-                pageTitle: "book"
+                pageTitle: "Book"
             },
             controller: "BooksController as ctrl",
             abstract: true
@@ -55,7 +55,7 @@ function configBlocks($stateProvider) {
                 }
             },
             data: {
-                pageTitle: "New Permission",
+                pageTitle: "Create  book",
                 pageDesc: "From here you can create a new permission",
                 isNew: true
             }
