@@ -8,6 +8,7 @@ var app = angular.module("booker",[
     "ngSanitize",
     "angular-jwt",
     "ncy-angular-breadcrumb",
+    "ui.materialize",
     ]);
     // "ui.select",
     // "checklist-model",
