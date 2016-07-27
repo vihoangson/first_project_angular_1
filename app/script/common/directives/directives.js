@@ -16,7 +16,20 @@ app
     .directive('smallHeader', smallHeader)
     .directive('animatePanel', animatePanel)
     .directive('landingScrollspy', landingScrollspy)
-    .directive('minimizeMenu', minimizeMenu);
+    .directive('minimizeMenu', minimizeMenu)
+    .directive('eleBook', eleBook)
+    ;
+
+function eleBook($rootScope,$http){
+    return {
+        restrict: "A",
+        controller: function ($scope,$element){
+            $element.bind("click",function(){
+                $http.get("/api/index.php").then(function(response) {console.log(response);});
+            })
+        }
+    }
+}
 
 function minimizeMenu($rootScope){
     return {

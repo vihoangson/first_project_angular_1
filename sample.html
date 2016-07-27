@@ -232,7 +232,15 @@
 					return "This's my service"+m;
 				}
 			})
-
+			if(false){
+				$http.get("/api/index.php").then(function(response) {console.log(response);});
+				$http.delete("/api/index.php").then(function(response) {console.log(response);});
+				$http.post("/api/index.php").then(function(response) {console.log(response);});
+				$http.put("/api/index.php").then(function(response) {console.log(response);});
+				$http.options("/api/index.php").then(function(response) {console.log(response);});
+				$http.patch("/api/index.php").then(function(response) {console.log(response);});
+				$http.head("/api/index.php").then(function(response) {console.log(response);});
+			}
 
 		</script>
 
