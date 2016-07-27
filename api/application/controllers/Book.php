@@ -37,6 +37,7 @@ class Book extends REST_Controller {
             $data[$key]["Description"] = $value->getDescription();
             $data[$key]["Star"]        = $value->getStar();
             $data[$key]["Images"]      = $value->getImages();
+            $data[$key]["Status"]      = $value->getStatus();
         }
         if($this->get("id")){
             $data = $data[0];
@@ -51,6 +52,7 @@ class Book extends REST_Controller {
         $book->setDescription($this->post("Description"));
         $book->setStar($this->post("Star"));
         $book->setImages($this->post("Images"));
+        $book->setStatus($this->post("Status"));
         $this->em->persist($book);
         $this->em->flush();
     }
@@ -62,6 +64,7 @@ class Book extends REST_Controller {
             $book->setDescription($this->put('Description'));
             $book->setStar($this->put("Star"));
             $book->setImages($this->post("Images"));
+            $book->setStatus($this->post("Status"));
             $this->em->persist($book);
             $this->em->flush();
         }

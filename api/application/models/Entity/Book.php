@@ -41,6 +41,11 @@ class Book
 	 */
 	protected $images;
 
+	/**
+	 * @Column(type="integer", length=1, nullable=false, options={"default":0})
+	 */
+	protected $status;
+
 	public function getId(){
 		return $this->id;
 	}
@@ -83,4 +88,15 @@ class Book
 		$this->images = $images;
 	}
 
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
 }
