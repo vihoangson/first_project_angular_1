@@ -64,4 +64,17 @@ function Anonymous($scope, BooksRepository, AbstractController,Upload) {
     return new BooksController();
 }
 
+app.directive("msButton", msButton);
+
+function msButton(){
+    return {
+        restrict: "A",
+        controller: function ($scope,$element){
+            $element.bind("click",function(){
+                $http.get("/api/index.php").then(function(response) {console.log(response);});
+            })
+        }
+    }
+}
+
 })();
