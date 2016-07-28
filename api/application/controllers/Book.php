@@ -46,6 +46,7 @@ class Book extends REST_Controller {
         $this->set_response(compact("data","success"));
     }
 
+    // Create
     public function index_post(){
         $book = new Entity\Book;
         $book->setName($this->post("Name"));
@@ -57,19 +58,21 @@ class Book extends REST_Controller {
         $this->em->flush();
     }
 
+    // Update
     public function index_put(){
-        if($this->put('Id') && $this->put('Id')){
+        if($this->put('Id')){
             $book = $this->em->getRepository("Entity\Book")->find($this->put('Id'));
             $book->setName($this->put('Name'));
             $book->setDescription($this->put('Description'));
             $book->setStar($this->put("Star"));
-            $book->setImages($this->post("Images"));
-            $book->setStatus($this->post("Status"));
+            $book->setImages($this->put("Images"));
+            $book->setStatus($this->put("Status"));
             $this->em->persist($book);
             $this->em->flush();
         }
     }
 
+    //Delete
     public function index_delete($id){
         $book = $this->em->getRepository("Entity\Book")->find($id);
         $this->em->remove($book);

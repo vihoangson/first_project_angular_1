@@ -37,7 +37,7 @@ class Book
 	protected $star;
 
 	/**
-	 * @Column(type="string", length=5000, nullable=false, options={"default":""})
+	 * @Column(type="string", length=5000, nullable=true, options={"default":""})
 	 */
 	protected $images;
 

@@ -17,17 +17,14 @@
 </div>
 <div class="form-group"><label class="control-label col-sm-2">Status</label>
     <div class="col-sm-6">
-        <select ng-model="model.Status" class="form-control input-sm">
-            <option value="1">Đã mượn</option>
-            <option value="1">Chưa mượn</option>
-        </select>
+        <select ng-options="item as item.label for item in items track by item.id" ng-model="model.Status" class="form-control"></select>
     </div>
 </div>
 <div class="form-group"><label class="control-label col-sm-2">Image</label>
     <div class="col-sm-6">
         <input type="file" ngf-select="onFileSelect($files)" multiple>
-        <input type="text" class="form-control input-sm hidden" required ng-model="model.Images"/>
-         <div id="preview-img" ng-bind-html="images"></div>
+        <input type="text" class="form-control input-sm" required ng-model="model.Images"/>
+        <div id="preview-img" ng-bind-html="images" preview-img></div>
     </div>
 </div>
 

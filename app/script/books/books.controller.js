@@ -40,6 +40,16 @@ function Anonymous($scope, BooksRepository, AbstractController,Upload) {
             });
         }
 
+        BooksController.prototype.beforeForm = function(){
+            $scope.items = [{
+                id: 0,
+                label: 'Đã mượn',
+            }, {
+                id: 1,
+                label: 'Chưa mượn',
+            }];
+        }
+
     BooksController.prototype.show = function(model){
         this.repository.show_book().then(
             function(response){
@@ -64,17 +74,34 @@ function Anonymous($scope, BooksRepository, AbstractController,Upload) {
     return new BooksController();
 }
 
-app.directive("msButton", msButton);
+app
+.directive("msButton", msButton)
+.directive("previewImg", previewImg)
+;
 
 function msButton(){
     return {
         restrict: "A",
         controller: function ($scope,$element){
             $element.bind("click",function(){
-                $http.get("/api/index.php").then(function(response) {console.log(response);});
+                $scope.$state.go("book.index");
             })
         }
     }
+}
+
+function previewImg(){
+    return {
+        controller: function($element){
+            //console.log("adf;kl");
+            //render_img(JSON.parse($scope.model.Images));
+            $element.bind("click",function($scope){
+                $scope.$state.go($scope.images);
+                console.log($scope.images);
+                $scope.images = " <img src='http://placehold.it/200x200'>";
+            })
+        }
+    };
 }
 
 })();
