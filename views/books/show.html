@@ -1,6 +1,5 @@
 <div ng-init="ctrl.show()" class="">
 	<div class="row">
-	<button ele-book>xxx{{xxx}}eleBook</button>
 		<div ng-repeat="model in collection" class="col-md-4 ele-book">
 			<div class="">
 				<a ui-sref="book.detail({id: {{model.Id}}})"><div ng-bind-html="model.Images|generateImages" class="thumnail"></div></a>
