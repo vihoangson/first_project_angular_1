@@ -44,6 +44,17 @@ function configBlocks($stateProvider) {
                 $scope.id=$stateParams.id;
             }
         })
+        .state("book.borrow", {
+            url: "/borrow/:id",
+            templateUrl: route+"borrow.html",
+            controller:function($scope,$stateParams){
+                $scope.id=$stateParams.id;
+            },
+            params:{
+                id:null,
+                model:null
+            }
+        })
         .state("book.create", {
             url: "/create",
             views: {

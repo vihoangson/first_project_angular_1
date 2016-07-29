@@ -14,13 +14,3 @@ function runBlocks($rootScope,$cacheFactory,$http,$state) {
 	$http.defaults.$cacheFactory = $cacheFactory;
 }
 
-app.filter("generateImages",generateImages);
-function generateImages(){
-    return function(value) {
-    	if(JSON.parse(value)[0]){
-    		return "<img src='/images/"+JSON.parse(value)[0]+"' class='generateImages'>";
-    	}else{
-    		return "";
-    	}
-    }
-}

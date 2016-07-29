@@ -50,6 +50,10 @@ function Anonymous($scope, BooksRepository, AbstractController,Upload) {
             }];
         }
 
+        BooksController.prototype.borrow = function(model){
+            console.log(model);
+        }
+
     BooksController.prototype.show = function(model){
         this.repository.show_book().then(
             function(response){
@@ -84,7 +88,7 @@ function msButton(){
         restrict: "A",
         controller: function ($scope,$element){
             $element.bind("click",function(){
-                $scope.$state.go("book.index");
+                $scope.$state.go("book.borrow",{id:1,model:{son:1,son2:2}});
             })
         }
     }
@@ -103,5 +107,17 @@ function previewImg(){
         }
     };
 }
+
+app.filter("generateImages",generateImages);
+function generateImages(){
+    return function(value) {
+        if(JSON.parse(value)[0]){
+            return "<img src='/images/"+JSON.parse(value)[0]+"' class='generateImages'>";
+        }else{
+            return "";
+        }
+    }
+}
+
 
 })();
