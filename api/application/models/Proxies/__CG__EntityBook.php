@@ -64,10 +64,10 @@ class Book extends \Entity\Book implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'id', 'name', 'description'];
+            return ['__isInitialized__', 'id', 'name', 'description', 'star', 'images', 'status'];
         }
 
-        return ['__isInitialized__', 'id', 'name', 'description'];
+        return ['__isInitialized__', 'id', 'name', 'description', 'star', 'images', 'status'];
     }
 
     /**
@@ -178,32 +178,14 @@ class Book extends \Entity\Book implements \Doctrine\ORM\Proxy\Proxy
      */
     public function getId()
     {
+        if ($this->__isInitialized__ === false) {
+            return (int)  parent::getId();
+        }
+
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
 
         return parent::getId();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setId($id)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setId', [$id]);
-
-        return parent::setId($id);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getName()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', []);
-
-        return parent::getName();
     }
 
     /**
@@ -220,12 +202,12 @@ class Book extends \Entity\Book implements \Doctrine\ORM\Proxy\Proxy
     /**
      * {@inheritDoc}
      */
-    public function getDescription()
+    public function getName()
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', []);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getName', []);
 
-        return parent::getDescription();
+        return parent::getName();
     }
 
     /**
@@ -237,6 +219,83 @@ class Book extends \Entity\Book implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', [$description]);
 
         return parent::setDescription($description);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDescription()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', []);
+
+        return parent::getDescription();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setStar($star)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setStar', [$star]);
+
+        return parent::setStar($star);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getStar()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getStar', []);
+
+        return parent::getStar();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setImages($images)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setImages', [$images]);
+
+        return parent::setImages($images);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getImages()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getImages', []);
+
+        return parent::getImages();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setStatus($status)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setStatus', [$status]);
+
+        return parent::setStatus($status);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getStatus()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getStatus', []);
+
+        return parent::getStatus();
     }
 
 }

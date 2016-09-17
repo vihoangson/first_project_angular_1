@@ -6,10 +6,10 @@ namespace Entity;
  * Book Model
  *
  *
- * @Entity(repositoryClass="Repositories\BookRepository")
- * @Table(name="book")
+ * @Entity(repositoryClass="Repositories\TypeBookRepository")
+ * @Table(name="TypeBook")
  */
-class Book
+class TypeBook
 {
 
 	/**
@@ -19,12 +19,6 @@ class Book
 	 * 
 	 */
 	protected $id;
-
-	/**
-	 * @ManyToOne(targetEntity="TypeBook")
-	 * @JoinColumn(name="id_typebook", referencedColumnName="id")
-	 */
-	protected $id_typebook;
 
 	/**
 	 * @Column(type="string", length=32, unique=true, nullable=false)
@@ -67,7 +61,7 @@ class Book
      *
      * @param string $name
      *
-     * @return Book
+     * @return TypeBook
      */
     public function setName($name)
     {
@@ -91,7 +85,7 @@ class Book
      *
      * @param string $description
      *
-     * @return Book
+     * @return TypeBook
      */
     public function setDescription($description)
     {
@@ -115,7 +109,7 @@ class Book
      *
      * @param integer $star
      *
-     * @return Book
+     * @return TypeBook
      */
     public function setStar($star)
     {
@@ -139,7 +133,7 @@ class Book
      *
      * @param string $images
      *
-     * @return Book
+     * @return TypeBook
      */
     public function setImages($images)
     {
@@ -163,7 +157,7 @@ class Book
      *
      * @param integer $status
      *
-     * @return Book
+     * @return TypeBook
      */
     public function setStatus($status)
     {
@@ -180,29 +174,5 @@ class Book
     public function getStatus()
     {
         return $this->status;
-    }
-
-    /**
-     * Set idTypebook
-     *
-     * @param \Entity\TypeBook $idTypebook
-     *
-     * @return Book
-     */
-    public function setIdTypebook(\Entity\TypeBook $idTypebook = null)
-    {
-        $this->id_typebook = $idTypebook;
-
-        return $this;
-    }
-
-    /**
-     * Get idTypebook
-     *
-     * @return \Entity\TypeBook
-     */
-    public function getIdTypebook()
-    {
-        return $this->id_typebook;
     }
 }

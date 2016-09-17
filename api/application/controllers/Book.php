@@ -17,12 +17,11 @@ require APPPATH . '/libraries/REST_Controller.php';
  */
 class Book extends REST_Controller {
 
-    private $em;
+    
 
     function __construct()
     {
         parent::__construct();
-        $this->em = $this->doctrine->em;
     }
   
     public function index_get(){

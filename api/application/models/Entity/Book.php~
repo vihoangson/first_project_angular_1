@@ -181,28 +181,4 @@ class Book
     {
         return $this->status;
     }
-
-    /**
-     * Set idTypebook
-     *
-     * @param \Entity\TypeBook $idTypebook
-     *
-     * @return Book
-     */
-    public function setIdTypebook(\Entity\TypeBook $idTypebook = null)
-    {
-        $this->id_typebook = $idTypebook;
-
-        return $this;
-    }
-
-    /**
-     * Get idTypebook
-     *
-     * @return \Entity\TypeBook
-     */
-    public function getIdTypebook()
-    {
-        return $this->id_typebook;
-    }
 }

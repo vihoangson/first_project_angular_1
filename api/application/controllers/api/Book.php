@@ -16,6 +16,7 @@ require APPPATH . '/libraries/REST_Controller.php';
  * @license         MIT
  * @link            https://github.com/chriskacerguis/codeigniter-restserver
  */
+
 class Book extends REST_Controller {
 
     function __construct()
@@ -29,8 +30,11 @@ class Book extends REST_Controller {
         $this->methods['user_post']['limit'] = 100; // 100 requests per hour per user/key
         $this->methods['user_delete']['limit'] = 50; // 50 requests per hour per user/key
     }
+    //
+    //  @url http://angular.vn/api/index.php/api/book/index
     public function index_get(){
-    	$this->set_response(json_encode(["data"=>["Id"=>1,"Name"=>"2222"]]));
+        $data = $this->em->getRepository("Entity\Book")->getAll();
+    	$this->set_response(compact("data"));
     }
 
     public function users_get()
